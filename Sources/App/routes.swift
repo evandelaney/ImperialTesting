@@ -1,6 +1,7 @@
 import Vapor
 
 func routes(_ app: Application) throws {
+    
     app.get { req async in
         "It works!"
     }
@@ -8,4 +9,7 @@ func routes(_ app: Application) throws {
     app.get("hello") { req async -> String in
         "Hello, world!"
     }
+    
+    let googleController = GoogleController()
+    try app.register(collection: googleController)
 }
